@@ -16,6 +16,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def landing_page():
     return render_template('landingPage.html')
 
+# Serve the Sign-In Page
+@app.route('/signin')
+def signin_page():
+    return render_template('signinPage.html')
+
 # Serve the Second Page
 @app.route('/second')
 def second_page():

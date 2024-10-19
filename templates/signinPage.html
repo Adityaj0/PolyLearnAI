@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='uploads/Notely-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signinPage.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="signin-container" id="authForm">
+        <h1>Sign In</h1>
+        <input type="email" id="userEmail" placeholder="email" required>
+        <input type="password" id="userPassword" placeholder="password" required>
+        <button id="signUpButton" class="signup">Sign Up</button>
+        <button id="signInButton" class="signin">Sign In</button>
+        <button id="signInButtonGoogle" class="google">
+            <img class="googlebut" src="{{ url_for('static', filename='uploads/google.webp') }}" />
+            Sign in with Google
+        </button>
+    </div>
+
+    <div id="secretContent">
+        <h3> This is top secret</h3>
+        <h1>AUTHENTICATED</h1>
+        <button id="signOutButton">Sign Out</button>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider();
+
+        document.getElementById("signInButtonGoogle").addEventListener('click', async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                window.location.replace("{{ url_for('second_page') }}");
+            } catch (error) {
+                console.error("Error during Google sign-in:", error);
+            }
+        });
+
+        document.getElementById("signUpButton").addEventListener('click', async () => {
+            const email = document.getElementById("userEmail").value;
+            const password = document.getElementById("userPassword").value;
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+                alert("Your account has been created!");
+            } catch (error) {
+                console.error("Error during sign-up:", error);
+                alert("Error: " + error.message);
+            }
+        });
+
+        document.getElementById("signInButton").addEventListener('click', async () => {
+            const email = document.getElementById("userEmail").value;
+            const password = document.getElementById("userPassword").value;
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                window.location.replace("{{ url_for('second_page') }}");
+            } catch (error) {
+                console.error("Error during sign-in:", error);
+                alert("Error: " + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
