@@ -79,11 +79,19 @@ window.addEventListener('resize', resizeCanvas);
 document.getElementById('file-upload').addEventListener('change', function() {
     const file = this.files[0];
     if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const content = e.target.result;
-            console.log(content); // Handle the file content
-        }
-        reader.readAsText(file);
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 });

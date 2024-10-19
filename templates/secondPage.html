@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Try PolyLearn - AI Education</title>
     <link href="https://fonts.googleapis.com/css2?family=Biryani&family=Space+Grotesk:wght@400;500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="secondPage.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/secondPage.css') }}">
 </head>
 <body>
     <div class="container">
@@ -13,7 +13,7 @@
 
         <!-- Sidebar toggle icon -->
         <div class="sidebar-toggle">
-            <img src="fe_bar.png" alt="Toggle Sidebar">
+            <img src="{{ url_for('static', filename='uploads/fe_bar.png') }}" alt="Toggle Sidebar">
         </div>
 
         <!-- Sidebar (initially hidden) -->
@@ -30,7 +30,7 @@
         <!-- Centered logo and text container -->
         <div class="logo-container">
             <div class="logo">
-                <img src="game-icons_brain.png" alt="PolyLearn Logo" style="width:100%; height:auto;">
+                <img src="{{ url_for('static', filename='uploads/game-icons_brain.png') }}" alt="PolyLearn Logo" style="width:100%; height:auto;">
             </div>
             <div class="logo-text">PolyLearnAI</div>
         </div>
@@ -40,17 +40,17 @@
         <!-- Search bar with upload, mic, and send buttons inside -->
         <div class="input-container">
             <label for="file-upload" class="upload-icon">
-                <img src="ci_files.png" alt="Upload">
+                <img src="{{ url_for('static', filename='uploads/ci_files.png') }}" alt="Upload">
             </label>
             <input type="file" id="file-upload" style="display: none;">
             <div class="mic-icon">
-                <img src="material-symbols-light_mic-outline.png" alt="Mic">
+                <img src="{{ url_for('static', filename='uploads/material-symbols-light_mic-outline.png') }}" alt="Mic">
             </div>
             <input type="text" id="search-input" class="input-field" placeholder="Type something...">
             <button class="submit-button"></button>
         </div>
     </div>
     
-    <script src="secondPage.js"></script>
+    <script src="{{ url_for('static', filename='js/secondPage.js') }}"></script>
 </body>
 </html>

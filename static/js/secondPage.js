@@ -80,8 +80,20 @@ window.addEventListener('resize', resizeCanvas);
 document.getElementById('file-upload').addEventListener('change', function() {
     const file = this.files[0];
     if (file) {
-        alert(`File "${file.name}" uploaded successfully.`);
-        // Further processing of the uploaded file can be added here
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 });
 
