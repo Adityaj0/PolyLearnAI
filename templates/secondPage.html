@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try PolyLearn - AI Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani&family=Space+Grotesk:wght@400;500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="secondPage.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="neuron-background"></canvas>
+        <div class="logo-text">PolyLearnAI</div>
+        <div class="logo">
+            <img src="game-icons_brain.png" alt="PolyLearn Logo" style="width:100%; height:auto;">
+        </div>
+        <div class="main-heading">What are you curious about?</div>
+        
+        <!-- Search bar with upload, mic, and send buttons inside -->
+        <div class="input-container">
+            <!-- Upload button inside the search bar -->
+            <label for="file-upload" class="upload-icon">
+                <img src="material-symbols-light_mic-outline.png" alt="Upload">
+            </label>
+            <input type="file" id="file-upload" style="display: none;">
+            
+            <!-- Mic button inside the search bar -->
+            <div class="mic-icon">
+                <img src="ci_files.png" alt="Mic">
+            </div>
+
+            <!-- Input field for text -->
+            <input type="text" class="input-field" placeholder="Type something...">
+
+            <!-- Send button inside the search bar -->
+            <button class="submit-button"></button>
+        </div>
+    </div>
+    
+    <script src="secondPage.js"></script>
+</body>
+</html>
