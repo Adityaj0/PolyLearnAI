@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   box-sizing: border-box;
 }
@@ -31,14 +32,100 @@ body, html {
   z-index: 1;
 }
 
-.logo-text {
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: -250px; /* Hidden by default */
+  top: 0;
+  width: 500px;
+  height: 100%;
+  background-color: #444;
+  color: white;
+  z-index: 3;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+  left: 0; /* Show sidebar when open class is added */
+}
+
+.sidebar-header {
+  padding: 20px;
+  background-color: #555;
+  text-align: center;
+}
+
+#new-chat-btn {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#chat-list li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #777;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#chat-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
   position: absolute;
-  top: 48px;
-  left: 196px;
+  margin-top: 10px;
+  margin-left: 10px;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle img {
+  width: 60px;
+  height: 60px;
+}
+
+.sidebar-toggle.open {
+  transform: translateX(250px);
+}
+
+/* Logo container with Flexbox for inline layout */
+.logo-container {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.logo-text {
   font-family: 'Biryani', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  z-index: 2;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
 }
 
 .main-heading {
@@ -56,7 +143,6 @@ body, html {
   z-index: 2;
 }
 
-/* Updated input-container layout */
 .input-container {
   position: absolute;
   top: 50%;
@@ -71,38 +157,16 @@ body, html {
   border: 1px solid #4caf50;
   border-radius: 50px;
   padding: 0 10px;
-  justify-content: space-between; /* Ensures proper spacing */
+  justify-content: space-between;
 }
 
-/* File upload icon on the far left */
-.upload-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 10px;
-  cursor: pointer;
-}
-
+.mic-icon img,
 .upload-icon img {
-  width: 24px;
-  height: 24px;
+  margin-left: 5px;
+  width: 27px;
+  height: 27px;
 }
 
-/* Mic icon next to file upload icon */
-.mic-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 10px;
-  cursor: pointer;
-}
-
-.mic-icon img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Input field for typing, centered between icons and button */
 .input-field {
   flex: 1;
   padding: 15px 10px;
@@ -111,14 +175,12 @@ body, html {
   border: none;
   color: #ffffff;
   outline: none;
-  text-align: center;
 }
 
 .input-field::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Send button (submit/search button) on the far right */
 .submit-button {
   background-color: #4caf50;
   border: none;
@@ -137,37 +199,26 @@ body, html {
   font-size: 24px;
 }
 
-/* Logo styling */
-.logo {
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  top: 29px;
-  left: 104px;
-  z-index: 2;
-}
-
-/* Responsive media queries */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .logo-text {
-    left: 100px;
+  .sidebar {
+    width: 100%;
+    left: -100%;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-toggle.open {
+    transform: translateX(0);
   }
 
   .main-heading {
-    font-size: 48px;
+    font-size: 40px;
   }
 
-  .input-field {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-text {
-    left: 50px;
-  }
-
-  .main-heading {
-    font-size: 36px;
+  .input-container {
+    width: 90%;
   }
 }

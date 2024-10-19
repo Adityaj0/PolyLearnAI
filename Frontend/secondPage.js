@@ -87,7 +87,7 @@ document.getElementById('file-upload').addEventListener('change', function() {
 
 // Speech recognition setup
 const searchInput = document.getElementById('search-input');
-const speakButton = document.querySelector('.speak-button');
+const speakButton = document.querySelector('.mic-icon');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -100,3 +100,59 @@ recognition.onresult = (event) => {
 speakButton.addEventListener('click', () => {
     recognition.start();
 });
+
+// Sidebar functionality
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const newChatBtn = document.getElementById('new-chat-btn');
+const chatList = document.getElementById('chat-list');
+let chatCounter = 1;
+
+function createNewChat() {
+    // Clear the search input
+    searchInput.value = '';
+
+    // Add a new chat to the list
+    const newChatItem = document.createElement('li');
+    newChatItem.textContent = `Chat ${chatCounter}`;
+    newChatItem.addEventListener('click', () => {
+        // Handle chat selection (you can add more functionality here)
+        alert(`Selected ${newChatItem.textContent}`);
+    });
+    chatList.appendChild(newChatItem);
+    chatCounter++;
+
+    // Focus on the search input
+    searchInput.focus();
+
+    // If the sidebar is not visible on mobile, hide it after creating a new chat
+    if (window.innerWidth <= 768) {
+        sidebar.style.left = '-250px';
+    }
+}
+
+sidebarToggle.addEventListener('click', () => {
+    // Check current position and toggle
+    if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px'; // Hide the sidebar
+    } else {
+        sidebar.style.left = '0px'; // Show the sidebar
+    }
+});
+
+newChatBtn.addEventListener('click', createNewChat);
+
+// Add functionality to go to new chat when sidebar icon is clicked
+sidebarToggle.addEventListener('click', () => {
+    if (sidebar.style.left === '-250px') {
+        // If the sidebar is currently hidden, show it and create a new chat
+        sidebar.style.left = '0px';
+        createNewChat();
+    } else {
+        // If the sidebar is visible, just hide it
+        sidebar.style.left = '-250px';
+    }
+});
+
+// Initialize with a new chat
+createNewChat();
