@@ -6,29 +6,77 @@
     <title>PolyLearn - AI Education</title>
     <link rel="stylesheet" href="landingPage.css">
     <link href="https://fonts.googleapis.com/css2?family=Biryani&family=Space+Grotesk:wght@400;500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-  </head>
-  <body>
-      <div class="container">
-          <canvas id="neuron-background"></canvas>
-          <div class="content">
-              <div class="logo-container">
-                  <div class="logo">
-                      <img src="game-icons_brain.png" alt="PolyLearn Logo" style="width:100%; height:auto;">
-                  </div>
-                  <div class="logo-text">PolyLearnAI</div>
-              </div>
-              <div class="main-heading">Multi-modal Learning System.</div>
-              <div class="sub-heading">AI Education.</div>
-              <div class="description">Our technology powers a high-performance, AI-driven learning platform that adapts seamlessly to individual needs, optimizing education for learners and educators.</div>
-              <div class="button-container" style="display: flex; gap: 10px;">
-                  <button class="button">Get started</button>
-                  <button class="button">Demo</button>
-              </div>
-          </div>
-          <div class="image-container">
-              <img src="CalHacksGraphic.png" alt="Learning Pyramid">
-          </div>
-          <button class="button team-button">Our Team</button>
-      </div>
-      <script src="landingPage.js"></script>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
+        .main-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .right-buttons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="neuron-background"></canvas>
+        <div class="content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="game-icons_brain.png" alt="PolyLearn Logo" style="width:100%; height:auto;">
+                </div>
+                <div class="logo-text">PolyLearnAI</div>
+            </div>
+            <div class="main-heading">Multi-modal Learning System.</div>
+            <div class="sub-heading">AI Education.</div>
+            <div class="description">Our technology powers a high-performance, AI-driven learning platform that adapts seamlessly to individual needs, optimizing education for learners and educators.</div>
+
+            <!-- Button container with left and right sections -->
+            <div class="button-container">
+                <!-- Main action buttons on the left -->
+                <div class="main-buttons">
+                    <button class="button" id="getStartedButton">Get started</button>
+                    <button class="button">Demo</button>
+                </div>
+                <!-- Navigation buttons on the right -->
+                <div class="right-buttons">
+                    <button class="button" id="faqButton">FAQ</button>
+                    <button class="button" id="contactButton">Contact us</button>
+                    <button class="button" id="teamButton">Our Team</button>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="CalHacksGraphic.png" alt="Learning Pyramid">
+        </div>
+    </div>
+    <script src="landingPage.js"></script>
+    <input type="file" id="file-upload" style="display:none;" />
+</body>
+
+<!-- JavaScript -->
+<script type="module">
+    const getStartedButton = document.getElementById("getStartedButton");
+    const faqButton = document.getElementById("faqButton");
+    const contactButton = document.getElementById("contactButton");
+    const teamButton = document.getElementById("teamButton");
+
+    // Example redirect (update as per your file structure)
+    const redirectToSignIn = () => {
+        window.location.href = "signinPage.html"; 
+    };
+
+    getStartedButton.addEventListener('click', redirectToSignIn);
+    faqButton.addEventListener('click', redirectToSignIn);
+    contactButton.addEventListener('click', redirectToSignIn);
+    teamButton.addEventListener('click', redirectToSignIn);
+</script>
+</html>

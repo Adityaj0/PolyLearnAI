@@ -88,6 +88,28 @@ body, html {
 .button:hover {
   background-color: rgba(0, 255, 8, 0.1);
 }
+#faqButton {
+  position: absolute;
+  top: 20px;
+  right: 390px;
+  padding: 15px 40px;
+  z-index: 5; /* Ensure it's in front of other elements */
+}
+#contactButton {
+  position: absolute;
+  top: 20px;
+  right: 200px;
+  padding: 15px 40px;
+  z-index: 5; /* Ensure it's in front of other elements */
+}
+#teamButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px 40px;
+  z-index: 5; /* Ensure it's in front of other elements */
+}
+
 .team-button {
   position: absolute;
   top: 34px;
