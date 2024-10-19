@@ -1,0 +1,210 @@
+/* Global Styles */
+body {
+  font-family: 'Edu VIC WA NT Beginner', 'Roboto', 'Rubik', Arial, Helvetica, sans-serif; /* Use fonts from HTML */
+  background: linear-gradient(to bottom, #000000, #002c00);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px; /* Adjust logo size */
+  color: #fff; /* Logo color */
+}
+
+/* Login Button */
+.loginbut {
+  padding: 10px 20px;
+  border: 2px solid #4caf50;
+  color: rgb(248, 244, 225); /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.loginbut:hover {
+  background-color: #388E3C; /* Darker green on hover */
+}
+
+/* Get Started Text */
+.get-started, .get-started2 {
+  color: #fff; /* Text color */
+  text-align: center;
+  margin: 0;
+}
+
+/* Emphasized Text */
+.notely {
+  font-weight: bold; /* Emphasize Notely text */
+}
+
+/* Typing Effect Container */
+.typee {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.typing {
+  color: #fff; /* Text color for typing effect */
+  font-size: 20px; /* Adjust font size */
+}
+
+/* Main Container */
+.container {
+  text-align: center; /* Center the content */
+}
+
+/* Get Started Button */
+.startbutton {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Button background color (green) */
+  color: rgb(248, 244, 225); /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.startbutton:hover {
+  background-color: #388E3C; /* Darker green on hover */
+}
+
+/* Middle Section */
+.middle {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Individual Items in Middle */
+.middle div {
+  margin: 0 10px; /* Space between items */
+  font-size: 24px; /* Adjust font size */
+  color: #fff; /* Text color */
+}
+
+/* SVG Styling */
+.sg {
+  width: 100%; /* Make the SVG responsive */
+  margin-top: 20px;
+}
+
+/* Additional Styles for Sign-in */
+.signin-container {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(230, 230, 230, 0.2); /* Optional: Add shadow for depth */
+}
+
+/* Heading */
+h1 {
+  color: #4CAF50; /* Heading color (green) */
+  margin-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+label {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #4CAF50; /* Label color (green) */
+}
+
+/* Input Fields */
+input {
+  margin-top: 25px;
+  padding: 10px;
+  border: 2px solid #81C784; /* Lighter green border color */
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%; /* Full width of the container */
+  box-sizing: border-box; /* Include padding and border in total width/height */
+}
+
+/* Buttons */
+.signin, .signup {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50; /* Button background color (green) */
+  color: rgb(248, 244, 225); /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%; /* Match width with input fields */
+  box-sizing: border-box; /* Ensure width includes padding and border */
+}
+
+.signup:hover, .signin:hover {
+  background-color: #388E3C; /* Darker green on hover */
+}
+
+/* Paragraphs */
+p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Links */
+a {
+  color: #81C784; /* Lighter green link color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Google Button */
+.google {
+  font-family: serif; /* Font style for Google button */
+  font-weight: normal;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%; /* Match width with input fields */
+  display: flex; /* Flex layout */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background: white; /* Background for Google button */
+  color: #444; /* Text color */
+  border-radius: 5px;
+  border: thin solid #888; /* Border color */
+  box-shadow: 1px 1px 1px grey; /* Optional shadow for depth */
+  white-space: nowrap; /* Prevent text wrapping */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Google Button Icon */
+.googlebut {
+  width: 24px; /* Adjust size */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Google Button Hover Effect */
+.google:hover {
+  background: #ebebeb; /* Light grey on hover */
+}

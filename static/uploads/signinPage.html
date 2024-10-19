@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+  <link rel="icon" type="image/x-icon" href="Notely-logo.png">
+
+    <link rel="stylesheet" href="signinPage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="signin-container" id="authForm">
+        <h1>Sign In</h1>
+            <input type="email" id="userEmail" placeholder="email" required>
+            <input type="password" id="userPassword" placeholder="password" required>
+            <button id="signUpButton" class="signup">Sign Up</button>
+            <button id="signInButton" class="signin">Sign In</button>
+            <button id="signInButtonGoogle" class="google">
+              <img class="googlebut" src="google.webp" />
+              Sign in with Google
+            </button>
+            
+    </div>
+
+    <div id="secretContent">
+      <h3> THis is top secret</h3>
+      <h1>AUTHENTICATED</h1>
+      <button id="signOutButton">Sign Out</button>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCK_Qebmzp8RqyphjDd7eN0Mj5iQfST118",
+        authDomain: "login-1c935.firebaseapp.com",
+        projectId: "login-1c935",
+        storageBucket: "login-1c935.appspot.com",
+        messagingSenderId: "989048224453",
+        appId: "1:989048224453:web:d617d3eab50ab5a3b60eac"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const auth2 = getAuth(app);
+
+      const provider = new GoogleAuthProvider()
+
+      const signInButton1 = document.getElementById("signInButtonGoogle");
+      const signOutButton1 = document.getElementById("signOutButton");
+      const message = document.getElementById("message")
+
+      const userEmail = document.querySelector("#userEmail");
+      const userPassword = document.querySelector("#userPassword");
+      const authForm = document.querySelector("#authForm");
+      const secretContent = document.querySelector("#secretContent");
+      const signInButton = document.querySelector("#signInButton");
+      const signOutButton = document.querySelector("#signOutButton");
+      const signUpButton = document.querySelector("#signUpButton");
+
+
+      secretContent.style.display = "none";
+
+      signOutButton.style.display = "none";
+
+      const userSignUp = async() => {
+        const signUpEmail = userEmail.value;
+        const signUpPassword = userPassword.value;
+        createUserWithEmailAndPassword(auth2, signUpEmail, signUpPassword)
+        .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        alert("Your account has been created!");
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+        alert("Error: " + errorMessage); 
+    });
+}
+
+      const userSignIn2 = async() => {
+        const signInEmail = userEmail.value;
+        const signInPassword = userPassword.value;
+        signInWithEmailAndPassword(auth2, signInEmail, signInPassword)
+        .then((userCredential) => {
+        const user = userCredential.user;
+        window.location.replace("mainpage.html"); 
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+        alert("Error: " + errorMessage); 
+    });
+}
+      signUpButton.addEventListener('click', userSignUp);
+
+      const userSignIn = async() => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const user = result.user;
+        console.log(user);
+        window.location.replace("secondPage.html"); 
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+    });
+}
+
+
+      const userSignOut = async() =>{
+        signOut(auth).then(() => {
+          alert("You have signed out successfully!");
+        }).catch((error) =>{})
+      }
+
+      onAuthStateChanged(auth, (user) =>{
+        if(user) {
+          signOutButton1.style.display = "block";
+        }else{
+          signOutButton1.style.display = "none";
+        }
+      })
+
+      signInButton.addEventListener('click', userSignIn2);
+      signOutButton.addEventListener('click', userSignOut);
+      signInButton1.addEventListener('click', userSignIn)
+
+    </script>
+</body>
+</html>
