@@ -11,11 +11,6 @@
     <div class="container">
         <canvas id="neuron-background"></canvas>
 
-        <!-- Sidebar toggle icon -->
-        <div class="sidebar-toggle">
-            <img src="{{ url_for('static', filename='uploads/fe_bar.png') }}" alt="Toggle Sidebar">
-        </div>
-
 
 
         <!-- Centered logo and text container -->
@@ -30,13 +25,7 @@
         
         <!-- Search bar with upload, mic, and send buttons inside -->
         <div class="input-container">
-            <label for="file-upload" class="upload-icon">
-                <img src="{{ url_for('static', filename='uploads/ci_files.png') }}" alt="Upload">
-            </label>
             <input type="file" id="file-upload" style="display: none;">
-            <div class="mic-icon">
-                <img src="{{ url_for('static', filename='uploads/material-symbols-light_mic-outline.png') }}" alt="Mic">
-            </div>
             <input type="text" id="search-input" class="input-field" placeholder="Type something...">
             <button class="submit-button"></button>
         </div>
